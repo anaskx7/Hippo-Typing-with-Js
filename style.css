@@ -121,3 +121,52 @@ div .word{
 .over #focus-error {
     display: none;
 }
+#state{
+    text-align: center;
+    
+
+}
+#state h1{
+    /* color: var(--textPrimary); */
+    /* width: 90px; */
+    animation: typing 9s 0s linear normal;
+    
+}
+hr{
+    color: var(--bg-color);
+    
+}
+@keyframes typing {
+   
+    0%{
+        color: #AC80A0;
+        font-weight: 200;
+    }
+    100%{
+      
+        color: #3685B5;
+        font-weight: 400;
+    }
+    
+}
+#state svg{
+      /* width: 50px; */
+    
+    animation: wid 7s linear 0s infinite normal ;
+
+}
+@keyframes wid {
+    0%{
+    fill: #3685B5;
+
+       width:  0px;
+    }
+    50%{
+        width: 25px;
+    }
+    100%{
+        fill: var(--textPrimary);
+        width: 80px;
+    }
+    
+}
