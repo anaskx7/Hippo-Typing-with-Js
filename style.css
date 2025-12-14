@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --bg-color:#061826;
+    --textPrimary:#AC80A0;
+    --textSecondary:#3685B5;
+    --primaryColor:#0471A6;
+
+}
+
+body{
+    font-family: 'Roboto',sans-serif;
+    background-color: var(--bg-color);
+    color: var(--textPrimary);
+}
+main{
+    width: 600px;
+    margin: 50px auto;
+}
+h1{
+    color: var(--primaryColor);
+    font-size: 2rem;
+    font-weight: 190;
+    text-decoration: underline 1px;
+   
+}
+h1 svg{
+    width: 50px;
+    fill: var(--primaryColor);
+}
+
+#header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+}
+#buttons{
+    text-align: right;
+}
+#info{
+    color: var(--primaryColor);
+    font-size: 1.5rem;
+}
+button{
+    background-color: rgba(255,255,255,.1);
+    color: var(--textPrimary);
+    border-radius: 5px;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-family: 'Roboto';
+    font: 1.8rem;
+}
+div#games{
+    line-height: 35px;
+    height: 105px;
+    overflow: hidden;
+    position: relative;
+}
+#words{
+    filter: blur(5px);
+    /* color: var(--textSecondary); */
+}
+#games:focus #words{
+    filter: blur(0);
+}
+#focus-error{
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    padding-top: 35px;
+}
+#games:focus #focus-error{
+    display: none;
+}
+div .word{
+    display: inline-block;
+    font-family: 'Roboto Mono' monospace;
+ font-size: 1.4rem;
+   
+    margin: 0 6px;
+}
+ .correct{
+    color: var(--textSecondary);
+}
+.incorrect {
+    color: red;
+}
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+ #cursor {
+    width: 2px;
+    height: 1.3rem;
+    background-color: var(--primaryColor);
+     position: fixed;
+    top: 198px;
+    left: 340px;
+    animation: blink 1s linear 0.2s infinite normal ;
+    display: none;
+}
+#games:focus #cursor{
+    display: block;
+}
+.over #words{
+    opacity: .5;
+    filter: blur(0px);
+}
+.over:focus #cursor{
+    display:none;
+}
+.over #focus-error {
+    display: none;
+}
