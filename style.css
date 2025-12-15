@@ -1,172 +1,351 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-:root{
-    --bg-color:#061826;
-    --textPrimary:#AC80A0;
-    --textSecondary:#3685B5;
-    --primaryColor:#0471A6;
+@import url("https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-}
-
-body{
-    font-family: 'Roboto',sans-serif;
-    background-color: var(--bg-color);
-    color: var(--textPrimary);
-}
-main{
-    width: 600px;
-    margin: 50px auto;
-}
-h1{
-    color: var(--primaryColor);
-    font-size: 2rem;
-    font-weight: 190;
-    text-decoration: underline 1px;
-   
-}
-h1 svg{
-    width: 50px;
-    fill: var(--primaryColor);
+:root {
+  --bg-color: #061826;
+  --textPrimary: #ac80a0;
+  --textSecondary: #3685b5;
+  --primaryColor: #0471a6;
 }
 
-#header{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 20px 6px 30px;
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--textPrimary);
 }
-#buttons{
-    text-align: right;
+main {
+  width: 600px;
+  margin: 50px auto;
 }
-#info{
-    color: var(--primaryColor);
-    font-size: 1.5rem;
+h1 {
+  color: var(--primaryColor);
+  font-size: 2rem;
+  font-weight: 190;
+  text-decoration: underline 1px;
 }
-button{
-    background-color: rgba(255,255,255,.1);
-    color: var(--textPrimary);
-    border-radius: 5px;
-    border: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-family: 'Roboto';
-    font: 1.8rem;
+h1 svg {
+  width: 50px;
+  fill: var(--primaryColor);
 }
-div#games{
-    line-height: 35px;
-    height: 105px;
-    overflow: hidden;
-    position: relative;
+
+#header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px 6px 30px;
 }
-#words{
-    filter: blur(5px);
-    /* color: var(--textSecondary); */
+#buttons {
+  text-align: right;
+  font: 3rem;
 }
-#games:focus #words{
-    filter: blur(0);
+#info {
+  color: var(--primaryColor);
+  font-size: 1.5rem;
+  -webkit-text-stroke: 1.7px #388697;
 }
-#focus-error{
-    position: absolute;
-    inset: 0;
-    text-align: center;
-    padding-top: 35px;
+button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--textPrimary);
+  border-radius: 10px;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-family: "Roboto";
+  -webkit-text-stroke: 1px #388697;
 }
-#games:focus #focus-error{
-    display: none;
+div#games {
+  line-height: 35px;
+  height: 105px;
+  overflow: hidden;
+  position: relative;
 }
-div .word{
-    display: inline-block;
-    font-family: 'Roboto Mono' monospace;
- font-size: 1.4rem;
-   
-    margin: 0 6px;
+#words {
+  filter: blur(5px);
 }
- .correct{
-    color: var(--textSecondary);
+#games:focus #words {
+  filter: blur(0);
+}
+#focus-error {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  padding-top: 35px;
+}
+#games:focus #focus-error {
+  display: none;
+}
+div .word {
+  display: inline-block;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.4rem;
+
+  margin: 0 6px;
+}
+.correct {
+  color: var(--textSecondary);
 }
 .incorrect {
-    color: red;
+  color: red;
 }
-@keyframes blink{
-    0%{
-        opacity: 1;
-    }
-    50%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
- #cursor {
-    width: 2px;
-    height: 1.3rem;
-    background-color: var(--primaryColor);
-     position: fixed;
-    top: 198px;
-    left: 340px;
-    animation: blink 1s linear 0.2s infinite normal ;
-    display: none;
+#cursor {
+  width: 2px;
+  height: 1.3rem;
+  background-color: var(--primaryColor);
+  position: fixed;
+  top: 35%;
+  left: 340px;
+  animation: blink 1s linear 0.2s infinite normal;
+  display: none;
 }
-#games:focus #cursor{
-    display: block;
+#games:focus #cursor {
+  display: block;
 }
-.over #words{
-    opacity: .5;
-    filter: blur(0px);
+.over #words {
+  opacity: 0.5;
+  filter: blur(0px);
 }
-.over:focus #cursor{
-    display:none;
+.over:focus #cursor {
+  display: none;
 }
 .over #focus-error {
-    display: none;
+  display: none;
 }
-#state{
-    text-align: center;
-    
+h2 {
+  transform: translateX(30%);
+  text-decoration: none;
+  font-family: "Roboto mono", monospace;
+  line-height: 0px;
+  color: #304b65;
+}
+#state {
+  width: 40%;
+  height: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  transform: translateX(95%);
+  gap: 3rem;
+}
 
+#state svg {
+  width: 0px;
+  animation: wid 7s linear 0s 1 forwards;
+  opacity: 0.5;
+  transition: fill 3s ease-in-out;
 }
-#state h1{
-    /* color: var(--textPrimary); */
-    /* width: 90px; */
-    animation: typing 9s 0s linear normal;
-    
+#state p:hover {
+  opacity: 0%;
 }
-hr{
-    color: var(--bg-color);
-    
+#state svg:hover {
+  opacity: 0%;
 }
-@keyframes typing {
-   
-    0%{
-        color: #AC80A0;
-        font-weight: 200;
-    }
-    100%{
-      
-        color: #3685B5;
-        font-weight: 400;
-    }
-    
-}
-#state svg{
-      /* width: 50px; */
-    
-    animation: wid 7s linear 0s infinite normal ;
 
-}
 @keyframes wid {
-    0%{
-    fill: #3685B5;
+  0% {
+    width: 0px;
+    fill: #519395;
+    color: #519395;
+  }
+  50% {
+    fill: #304b65;
+    color: #304b65;
+  }
 
-       width:  0px;
-    }
-    50%{
-        width: 25px;
-    }
-    100%{
-        fill: var(--textPrimary);
-        width: 80px;
-    }
-    
+  100% {
+    fill: #388697;
+    width: 80px;
+    color: #6a9f92;
+  }
+}
+
+#state p {
+  width: 10%;
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 30px;
+  -webkit-text-stroke: 1.7px #388697;
+  animation: wid 7s linear 0s 1 forwards;
+  opacity: 0.5;
+}
+#cool {
+  margin-top: 0px;
+  top: 0%;
+}
+#cool span {
+  color: #304b65;
+  font-size: 2.3rem;
+  font-family: "BBH Bartle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+div #one {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #two {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #three {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #four {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #five {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #six {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #seven {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #eight {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #nine {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #ten {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #eleven {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #twelve {
+  transition: color 2ms ease-in;
+  display: inline-block;
+  transition: transform 2ms ease-in;
+}
+div #one:hover {
+  color: #f8333c;
+  transform: rotate(15deg);
+}
+#one:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #two:hover {
+  transform: rotate(15deg);
+  color: #e6af2e;
+}
+#two:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #three:hover {
+  transform: rotate(15deg);
+  color: #44b159;
+}
+#three:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+
+div #four:hover {
+  transform: rotate(15deg);
+  color: #fcab10;
+}
+#four:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #five:hover {
+  color: #bdbf09;
+  transform: rotate(15deg);
+}
+#five:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+
+div #six:hover {
+  transform: rotate(15deg);
+  color: #fcab10;
+}
+#six:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #seven:hover {
+  transform: rotate(15deg);
+  color: #2b9eb3;
+}
+#seven:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #eight:hover {
+  transform: rotate(15deg);
+  /* color: #0B7A75; */
+  color: #44af69;
+}
+#eight:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #nine:hover {
+  transform: rotate(15deg);
+
+  color: #ef3054;
+}
+#nine:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #ten:hover {
+  transform: rotate(15deg);
+  color: #c17817;
+}
+#ten:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #eleven:hover {
+  transform: rotate(15deg);
+  color: #b20d30;
+}
+#eleven:not(:hover) {
+  transition: transform 5ms ease-out;
+  transition: color 7s ease-out;
+}
+div #twelve:hover {
+  color: #ca054d;
+}
+#twelve:not(:hover) {
+  transition: color 7s ease-out;
 }
